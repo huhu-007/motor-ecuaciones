@@ -10,7 +10,7 @@ from .bisection import BisectionDigits, texto_periodo, fraccion_periodica, Preci
 from .formatter import ResultFormatter
 
 ARCHIVO = Path.cwd() / "datos.txt"      # siempre el mismo archivo (se actualiza, no se crean más)
-DELAY = 0.001                              # segundos entre decimales (el original ponía 0.001 aunque decía 1 s)
+DELAY = 1.0                              # segundos entre decimales (el original ponía 0.001 aunque decía 1 s)
 
 INSTRUCCIONES = """
 ==============================================================
@@ -21,7 +21,7 @@ QUÉ HACE:
      (teorema de Bolzano) entre -100 y 100, comprobando la CONTINUIDAD con
      aritmética de intervalos (los polos y puntos no definidos no cuentan).
   2. Reduce el intervalo a la mitad una y otra vez y muestra un decimal nuevo
-     cada pocos segundos, sin límite de decimales.
+     cada cierto tiempo, sin límite de decimales.
   3. Si detecta periodicidad la muestra, da la fracción y se detiene.
   4. Con ENTER se para el cálculo y se guarda todo en datos.txt.
   5. Después eliges:

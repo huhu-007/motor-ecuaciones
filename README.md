@@ -67,3 +67,10 @@ funciones inversas/hiperbólicas (el registro lo permite); notación científica
 * Evaluación exacta: no hay `ln(2)` ni `sin(1)` simbólicos; raíz de una suma de radicales (√(1+√2) evaluado exactamente) no implementada.
 * Convención real: `x^(p/q)` con q impar usa la raíz real (`(-8)^(1/3) = -2`); base negativa con exponente variable/irracional está indefinida; `0^0` indefinido; `log(x)` = log₁₀.
 * Rendimiento: el reconocimiento puede consumir `analysis_budget` s por raíz (8 s por defecto); con muchas raíces (p. ej. `sin(x)`) solo se analizan las `max_analyzed_roots` más cercanas a 0.
+
+## API web (FastAPI)
+`api.py` + `runner.py` exponen el motor por HTTP (`/solve`, `/analyze`, `/health`) con timeout duro, límites de
+entrada, limitación de tasa y CORS. Ver `docs/DESPLIEGUE_RENDER.md`, `docs/CONTRATO_API.md` y `docs/PROMPT_LOVABLE.md`.
+
+    pip install -r requirements.txt
+    uvicorn api:app --reload
